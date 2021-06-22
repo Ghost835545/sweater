@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+<#import "parts/common.ftlh" as c>
+<#import "parts/login.ftlh" as l>
 
-<body>
-Add new user
- {{#message}}}
-    {{message}}}
- {{/message}}}
-<form action="/registration" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
-<a href="/registration">Add new user!</a>
-</body>
-</html>
+<@c.page>
+    Add new user
+    ${message}
+    <@l.login "/registration" />
+</@c.page>
